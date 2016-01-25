@@ -10,7 +10,8 @@ RUN apt-get update && \
 	php5-mcrypt \
 	php5-memcached \
 	php5-intl \
-	php5-xsl
+	php5-xsl \
+	php5-mongo
 
 # fix for using top by example
 ENV TERM dumb
