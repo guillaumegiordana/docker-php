@@ -11,7 +11,9 @@ RUN apt-get update && \
 	php5-memcached \
 	php5-intl \
 	php5-xsl \
-	php5-mongo
+	php5-mongo \
+	php5-apcu \
+	php5-tidy
 
 # fix for using top by example
 ENV TERM dumb
