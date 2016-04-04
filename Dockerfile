@@ -24,7 +24,7 @@ RUN curl -sS http://files.magerun.net/n98-magerun-latest.phar -o /usr/bin/n98-ma
 RUN chmod +x /usr/bin/n98-magerun.phar
 RUN mv /usr/bin/n98-magerun.phar /usr/bin/magerun
 RUN mkdir -p /var/www/.n98-magerun/scripts/
-RUN curl -sS https://raw.githubusercontent.com/guillaumegiordana/docker-php/master/000-default.conf -o /etc/apache2/sites-enabled/000-default.conf
-RUN curl -sS https://raw.githubusercontent.com/guillaumegiordana/docker-php/master/30-custom.ini -o /etc/php5/apache2/conf.d/30-custom.ini
+COPY ./000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY ./30-custom.ini /etc/php5/apache2/conf.d/30-custom.ini
 
 WORKDIR /var/www
