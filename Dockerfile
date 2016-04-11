@@ -14,7 +14,8 @@ RUN apt-get update && \
 	php5-mongo \
 	php5-apcu \
 	php5-tidy \
-	git
+	git \
+	subversion
 
 # fix for using top by example
 ENV TERM dumb
