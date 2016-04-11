@@ -13,7 +13,8 @@ RUN apt-get update && \
 	php5-xsl \
 	php5-mongo \
 	php5-apcu \
-	php5-tidy
+	php5-tidy \
+	git
 
 # fix for using top by example
 ENV TERM dumb
