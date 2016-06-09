@@ -3,6 +3,7 @@ MAINTAINER Guillaume Giordana <guillaume.giordana@the-oz.com>
 
 RUN apt-get update && \
 	apt-get -yq install \
+	vim \
     curl \
     mcrypt \
     php5-curl \
@@ -18,7 +19,7 @@ RUN apt-get update && \
 	subversion
 
 # fix for using top by example
-ENV TERM dumb
+ENV TERM xterm-256color
 
 RUN php5enmod mcrypt
 RUN mkdir -p /tmp/session/
