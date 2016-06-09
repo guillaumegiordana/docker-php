@@ -1,4 +1,4 @@
-FROM php:7.0.0RC7-apache
+FROM php:7.0
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -24,7 +24,7 @@ RUN a2enmod rewrite
 RUN a2enmod headers
 
 # fix for using top by example
-ENV TERM dumb
+ENV TERM export TERM=xterm
 
 RUN mkdir -p /tmp/session/
 RUN curl -sS http://files.magerun.net/n98-magerun-latest.phar -o /usr/bin/n98-magerun.phar
