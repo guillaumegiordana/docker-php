@@ -3,7 +3,6 @@ FROM php:7.0-apache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get update && apt-get install -y \
-    apache2 \
     git \
     libxml2-dev \
     libmcrypt4 \
@@ -16,7 +15,9 @@ RUN apt-get update && apt-get install -y \
     vim
 
 RUN docker-php-ext-install -j$(nproc) \
-    iconv mcrypt \
+    calendar \
+    iconv \
+    mcrypt \
     mbstring \
     pdo_mysql \
     soap \
