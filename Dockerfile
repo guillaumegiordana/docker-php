@@ -9,6 +9,9 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && echo "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707" > $PHP_INI_DIR/conf.d/blackfire.ini
 
 RUN apt-get update && apt-get install -y \
+    libldap-2.4-2 \
+    libldap2-dev \
+    ldap-utils \
     git \
     libxml2-dev \
     libmcrypt4 \
@@ -20,14 +23,16 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     vim
 
+RUN ln -s /usr/lib/x86_64-linux-gnu/libldap-2.4.so.2 /usr/lib/libldap.so
+RUN ln -s x86_64-linux-gnu/liblber-2.4.so.2 /usr/lib/liblber.so
+
 RUN docker-php-ext-install -j$(nproc) \
+    ldap \
     calendar \
     iconv \
     mcrypt \
-    mbstring \
     pdo_mysql \
     soap \
-    mcrypt \
     xsl \
     intl \
     gd \
