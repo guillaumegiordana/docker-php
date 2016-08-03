@@ -31,6 +31,7 @@ RUN docker-php-ext-install -j$(nproc) \
     calendar \
     iconv \
     mcrypt \
+    mysqli \
     pdo_mysql \
     soap \
     xsl \
