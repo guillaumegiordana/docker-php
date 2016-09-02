@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap-2.4.so.2 /usr/lib/libldap.so
 RUN ln -s x86_64-linux-gnu/liblber-2.4.so.2 /usr/lib/liblber.so
 
+RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install -j$(nproc) \
     ldap \
     calendar \
@@ -36,10 +37,8 @@ RUN docker-php-ext-install -j$(nproc) \
     soap \
     xsl \
     intl \
-    gd \
-    zip
-
-RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/lib
+    zip \
+    gd
 
 RUN rm -rf /var/lib/apt/lists/*
 
