@@ -52,5 +52,6 @@ ENV APACHE_DOC_ROOT=/var/www/html/ \
 
 RUN a2enmod rewrite
 RUN a2enmod headers
+RUN a2enmod macro
 
 WORKDIR /var/www/html
