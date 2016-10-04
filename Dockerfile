@@ -38,7 +38,8 @@ RUN docker-php-ext-install -j$(nproc) \
     xsl \
     intl \
     zip \
-    gd
+    gd \
+    exif
 
 RUN rm -rf /var/lib/apt/lists/*
 
